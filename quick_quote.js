@@ -121,7 +121,7 @@ function do_quote(quoter) {
 }
 
 euro(document).ready(function (){
-    euro(".postcontent").mouseup(function(e) {
+    euro(document).on("mouseup", ".postcontent", function(e) {
         var contents = get_selected_post_chunk();   
         var author = get_author_name(e.currentTarget);
         var date = get_date(e.currentTarget);
@@ -132,10 +132,12 @@ euro(document).ready(function (){
         }
         e.stopPropagation();
     });
-    $(document).mouseup(function(e) {
-        var quoter = get_quoter();
-        if (!quoter.is(e.target) && quoter.has(e.target).length === 0) {
-            hide_quoter();
+    euro(document).mouseup(function(e) {
+        if (is_quoter_visible()) {
+            var quoter = get_quoter();
+            if (!quoter.is(e.target) && quoter.has(e.target).length === 0) {
+                hide_quoter();
+            }
         }
     });
     euro("#quoter-do-quote").click(function(e) {
@@ -148,4 +150,4 @@ euro(document).ready(function (){
         hide_quoter();
     });
 
-});	
+}); 
