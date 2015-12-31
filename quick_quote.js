@@ -120,7 +120,7 @@ function do_quote(quoter) {
     text_area.focus();
 }
 
-euro(document).ready(function (){
+euro(document).ready(function () {
     euro(document).on("mouseup", ".postcontent", function(e) {
         var contents = get_selected_post_chunk();   
         var author = get_author_name(e.currentTarget);
