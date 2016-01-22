@@ -7,15 +7,16 @@
                }
             } else {
                for (var i in this) {
-                  this[i].innerHTML.replace(/&amp;lt;br&amp;gt;/gi,"n").replace(/(&amp;lt;([^&amp;gt;]+)&amp;gt;)/gi, "");
+                  this[i].innerHTML.replace(/<\s*br\s*\/?>/gi,"\n").replace(/(<([^>;]+)>)/gi, "");
                }
             }
             return this;
          } else {
+            console.log("NO MSG!!!");
             if (document.body.innerText) {
                return this[0].innerText;
             } else {
-               return this[0].innerHTML.replace(/&amp;lt;br&amp;gt;/gi,"n").replace(/(&amp;lt;([^&amp;gt;]+)&amp;gt;)/gi, "");
+               return this[0].innerHTML.replace(/<\s*br\s*\/?>/gi,"\n").replace(/(<([^>;]+)>)/gi, "");
             }
          }
    };
