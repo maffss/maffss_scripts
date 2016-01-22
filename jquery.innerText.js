@@ -12,7 +12,6 @@
             }
             return this;
          } else {
-            console.log("NO MSG!!!");
             if (document.body.innerText) {
                return this[0].innerText;
             } else {
